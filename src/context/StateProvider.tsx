@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { Task } from '../types/types'
 
 interface StateContextType {
@@ -18,3 +18,5 @@ export const StateProvider: React.FC = ({ children }) => {
     </StateContext.Provider>
   )
 }
+
+export const useStateContext = (): StateContextType => useContext(StateContext)
