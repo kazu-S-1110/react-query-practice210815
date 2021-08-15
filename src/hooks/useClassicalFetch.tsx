@@ -13,7 +13,7 @@ export const useClassicalFetch = () => {
       setIsLoading(true)
       try {
         const res = await axios(
-          'https://restapi-django210814.herokuapp.com/api/tasks'
+          'https://restapi-django210814.herokuapp.com/api/tasks/'
         )
         setTasks(res.data)
       } catch (error) {

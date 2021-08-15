@@ -7,16 +7,17 @@ export const ClassicalFetchA: VFC = () => {
   const history = useHistory()
   const { tasks, isLoading, isError } = useClassicalFetch()
   console.log('classicalFetchAがレンダリングされました')
+  if (isLoading) return <div>{'Loading'}</div>
+  if (isError) return <div>{'Error'}</div>
 
   return (
     <div className="flex justify-center items-center flex-col">
       <p className="text-center font-bold mb-3">ClassicalFetchA</p>
-      {isError && <div>Error</div>}
-      {isLoading ? (
-        <div>Loading</div>
-      ) : (
-        tasks?.map((task) => <p key={task.id}>{task.title}</p>)
-      )}
+
+      {tasks?.map((task) => (
+        <p key={task.id}>{task.title}</p>
+      ))}
+
       <ChevronDoubleRightIcon
         onClick={() => history.push('/fetch-b')}
         className="h-5 w-5 mt-2 text-blue-500 cursor-pointer"
