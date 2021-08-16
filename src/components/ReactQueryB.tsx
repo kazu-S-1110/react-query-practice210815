@@ -6,6 +6,7 @@ import { Task } from '../types/types'
 
 export const ReactQueryB: VFC = () => {
   const history = useHistory()
+  console.log('reactQueryBがレンダリングされました')
   const queryClient = useQueryClient() //useQueryClientで取得することが可能
   const data = queryClient.getQueryData<Task[]>('tasks') //querykeyでアクセスが可能
 

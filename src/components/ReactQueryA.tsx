@@ -6,12 +6,13 @@ import { useQueryTasks } from '../hooks/useQueryTasks'
 export const ReactQueryA: VFC = () => {
   const history = useHistory()
   const { status, data } = useQueryTasks()
+  console.log('reactQueryAがレンダリングされました')
   if (status === 'loading') return <div>{'loading...'}</div>
   if (status === 'error') return <div>{'Error'}</div>
 
   return (
     <>
-      <p className="font-bold my-3">ReactQuery</p>
+      <p className="font-bold my-3">ReactQueryA</p>
       {data?.map((task) => (
         <p key={task.id}>{task.title}</p>
       ))}
